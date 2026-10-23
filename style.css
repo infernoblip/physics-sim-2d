@@ -1,0 +1,108 @@
+* { box-sizing: border-box; }
+
+:root {
+  --bg: #0d1117;
+  --panel: rgba(22, 27, 34, 0.85);
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #4cc9f0;
+  --border: #30363d;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  cursor: crosshair;
+  touch-action: none;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0) 0 0 / 32px 32px,
+    var(--bg);
+}
+
+.hud {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  max-width: 760px;
+  padding: 12px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  z-index: 2;
+}
+
+.hud h1 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+button {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: #21262d;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+button:hover { border-color: var(--accent); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.slider {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.slider input { width: 140px; accent-color: var(--accent); }
+.slider span { min-width: 40px; color: var(--text); font-variant-numeric: tabular-nums; }
+
+.stats {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.hint {
+  position: fixed;
+  bottom: 12px;
+  left: 16px;
+  right: 16px;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .hud { top: 8px; left: 8px; right: 8px; padding: 10px; }
+  .slider input { width: 100px; }
+  .hint { font-size: 0.75rem; }
+}
