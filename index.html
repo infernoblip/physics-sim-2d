@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2D Rigid Body Physics Sim</title>
+  <meta name="description" content="A basic 2D rigid body physics simulator built with plain HTML, CSS and JavaScript.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="scene" aria-label="Physics simulation canvas"></canvas>
+
+  <header class="hud">
+    <h1>Rigid Body Sim</h1>
+    <div class="controls">
+      <button type="button" data-action="box">+ Box</button>
+      <button type="button" data-action="circle">+ Ball</button>
+      <button type="button" data-action="random">+10 Random</button>
+      <button type="button" data-action="pyramid">Pyramid</button>
+      <button type="button" data-action="pause" id="pauseBtn">Pause</button>
+      <button type="button" data-action="clear">Clear</button>
+      <label class="slider">
+        Gravity
+        <input type="range" id="gravity" min="0" max="2000" step="10" value="900">
+        <span id="gravVal">900</span>
+      </label>
+    </div>
+    <p class="stats"><span id="bodies">0</span> bodies &middot; <span id="fps">0</span> fps</p>
+  </header>
+
+  <p class="hint">Click empty space to drop a shape &middot; Drag a shape to throw it &middot; Space pauses</p>
+
+  <script src="physics.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
